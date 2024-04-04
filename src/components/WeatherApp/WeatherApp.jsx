@@ -12,31 +12,34 @@ import feel_like from '../Assets/feel_like.jpeg'
 
 
 const WeatherApp = () => {
-  const search = () =>{
-    const element = document.getElementsByClassName('cityinput')
-    if (element.value === "")
-    {
+  const search = async () => {
+    const element = document.getElementsByClassName('cityinput')[0];
+    if (element.value === "") {
       return 0;
     }
-    let url = `http://127.0.0.1:8000/getweather/${element.value}`
+    try {
+      const url = `http://127.0.0.1:8000/getweather/${element.value}`;
+      const response = await fetch(url);
+      const data = await response.json();
 
-    let response = fetch(url).then(res => console.log(res,"aaaaa"));
-    console.log(response)
-    let data = response.json();
+      console.log(data.value.humidity)
 
-    const humidity = document.getElementsByClassName('humidity-percent')
-    const feels_like = document.getElementsByClassName('feels_like')
-    const temprature = document.getElementsByClassName('weather-temp')
-    const location = document.getElementsByClassName('weather-location')
-    const possible = document.getElementsByClassName('weather-possible')
+      const humidity = document.getElementsByClassName("humidity-percent")[0];
+      const feels_like = document.getElementsByClassName("feels_like")[0];
+      const temperature = document.getElementsByClassName("weather-temp")[0];
+      const location = document.getElementsByClassName("weather-location")[0];
+      const possible = document.getElementsByClassName("weather-possible")[0];
 
-    humidity.innerHTML = data.humidity + "%"
-    feels_like.innerHTML = data.feels_like_celsius + "°C"
-    temprature.innerHTML = data.temperature_celsius + "°C"
-    location.innerHTML = data.location_name
-    possible.innerHTML = data.condition_text
+      humidity.innerHTML = data.value.humidity + "%";
+      feels_like.innerHTML = data.value.feels_like_celsius + "°C";
+      temperature.innerHTML = data.value.temperature_celsius + "°C";
+      location.innerHTML = data.value.location_name;
+      possible.innerHTML = data.value.condition_text;
+    } catch (error) {
+      console.error('Failed to fetch weather data:', error);
+    }
+  };
 
-  }
 
   return (
     <div className='container'>
@@ -63,6 +66,7 @@ const WeatherApp = () => {
           <div className='element'>
             <img src={feel_like} alt='' className='icon' width='100px'></img>
             <div className='data'>
+              <div className="text">Feels Like</div>
               <div className='feels_like'>31.9</div>
             </div>
           </div>
