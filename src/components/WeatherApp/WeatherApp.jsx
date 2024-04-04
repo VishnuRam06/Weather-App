@@ -13,7 +13,7 @@ import feel_like from '../Assets/feel_like.jpeg'
 
 const WeatherApp = () => {
   const search = async () => {
-    const element = document.getElementsByClassName('cityinput')[0];
+    const element = document.getElementsByClassName('cityinput')[0]; //to get the from the user
     if (element.value === "") {
       return 0;
     }
