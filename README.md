@@ -33,15 +33,15 @@ Technologies Used
 
 Frontend:
 
-React.js
-HTML
-CSS
+React.js,
+HTML,
+CSS,
 JavaScript
 
 Backend:
 
-Django
-MySQL
+Django,
+MySQL,
 Django REST Framework
 
 Project Structure:
