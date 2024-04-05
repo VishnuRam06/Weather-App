@@ -1,70 +1,66 @@
-# Getting Started with Create React App
+Weather App Documentation
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+Overview
+The Weather App is a web application that allows users to get weather information for a specific city. It fetches weather data from an API based on the user's input and displays it on the user interface.
 
-## Available Scripts
+Frontend (React.js):
 
-In the project directory, you can run:
+The frontend application built with React.js.
+It allows users to search for weather information by entering the name of a city.
+Upon searching, it fetches weather data from the backend API and displays it on the user interface.
+The UI includes elements such as input fields, search buttons, weather icons, temperature, humidity, and condition text.
 
-### `npm start`
+Backend (Django):
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+The backend is developed using Django, a Python web framework.
+It provides a RESTful API endpoint /getweather/<city> to fetch weather data for a specific city.
+The API retrieves weather information from a database, which is populated with data from a CSV file containing weather data for various regions.
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+Functionality:
 
-### `npm test`
+When a user enters a city name and clicks the search button, the frontend sends a request to the backend API.
+The backend processes the request, fetches weather data for the specified city from the database, and returns it in JSON format.
+The frontend receives the weather data and updates the UI with the retrieved information, displaying temperature, humidity, and weather conditions for the selected city.
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+Features
+Users can enter a city name to get weather information.
+Weather information includes temperature, condition, humidity, and feels-like temperature.
+The application uses React.js for the frontend and Django for the backend.
+Data is fetched from a weather API and stored in a MySQL database.
+The frontend communicates with the backend using RESTful APIs.
 
-### `npm run build`
+Technologies Used
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+Frontend:
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+React.js
+HTML
+CSS
+JavaScript
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+Backend:
 
-### `npm run eject`
+Django
+MySQL
+Django REST Framework
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+Project Structure:
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+frontend/: Contains the React.js frontend code.
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+src/: Contains the source code files.
+components/: Contains reusable React components.
+Assets/: Contains images used in the application.
+WeatherApp.jsx: Main component for the Weather App.
+WeatherApp.css: Stylesheet for the Weather App component.
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+backend/: Contains the Django backend code.
 
-## Learn More
+main_file/: Django project folder.
+Weather/: Django app folder.
+models.py: Contains Django models for storing weather data.
+serializer.py: Contains serializers for converting Django models to JSON.
+views.py: Contains Django views for handling API requests.
+urls.py: Contains URL patterns for routing API requests.
+IndianWeatherRepository.csv: CSV file containing weather data.
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
