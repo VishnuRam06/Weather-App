@@ -13,24 +13,22 @@ import feel_like from '../Assets/feel_like.jpeg'
 
 const WeatherApp = () => {
   const search = async () => {
-    const element = document.getElementsByClassName('cityinput')[0]; //to get the from the user
-    if (element.value === "") {
+    const element = document.getElementsByClassName('cityinput')[0]; //to get the value from the user
+    if (element.value === "") {  // to check the variable have value or not 
       return 0;
     }
     try {
-      const url = `http://127.0.0.1:8000/getweather/${element.value}`;
-      const response = await fetch(url);
-      const data = await response.json();
+      const url = `http://127.0.0.1:8000/getweather/${element.value}`; //to fetch the data from the API
+      const response = await fetch(url); //it will wait untill the data get fetch from API
+      const data = await response.json(); //To return as json
 
-      console.log(data.value.humidity)
-
-      const humidity = document.getElementsByClassName("humidity-percent")[0];
+      const humidity = document.getElementsByClassName("humidity-percent")[0];//to get the element value
       const feels_like = document.getElementsByClassName("feels_like")[0];
       const temperature = document.getElementsByClassName("weather-temp")[0];
       const location = document.getElementsByClassName("weather-location")[0];
       const possible = document.getElementsByClassName("weather-possible")[0];
 
-      humidity.innerHTML = data.value.humidity + "%";
+      humidity.innerHTML = data.value.humidity + "%"; //to update the element value
       feels_like.innerHTML = data.value.feels_like_celsius + "°C";
       temperature.innerHTML = data.value.temperature_celsius + "°C";
       location.innerHTML = data.value.location_name;
